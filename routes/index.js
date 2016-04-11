@@ -7,10 +7,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/productId/', function(req, res, next) {
-    var result = {"productId" : 80}
-    var response = { "errCode" : 0,
-		    "result" : result }
-    res.send(response)
+    setTimeout(function() {
+	var result = {"productId" : 80}
+	var response = { "errCode" : 0,
+			 "result" : result }
+	res.send(response)
+    }, 2000);
 });
 
 router.get('/product/articles', function(req, res, next) {
