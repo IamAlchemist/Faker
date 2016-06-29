@@ -6,6 +6,11 @@ router.get('/', function(req, res, next) {
     res.render('index', { title: 'Express' });
 });
 
+router.get('/echo_cookie', function(req, res, next) {
+    res.render('echo_cookie', { title: 'Echo Cookie' });
+});
+	   
+
 router.get('/productId/', function(req, res, next) {
     setTimeout(function() {
 	var result = {"productId" : 80}
