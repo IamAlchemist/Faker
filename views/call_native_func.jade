@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  button#btn_app_user_login
+    | app login
+
+  script(src='/javascripts/app_user_login.js')
+    

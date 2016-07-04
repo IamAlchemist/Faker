@@ -10,7 +10,10 @@ router.get('/echo_cookie', function(req, res, next) {
     res.setHeader("Set-Cookie", ['a=000']);
     res.render('echo_cookie', { title: 'Echo Cookie' });
 });
-	   
+
+router.get('/call_native_func', function(req, res, next) {
+    res.render('call_native_func', { title: 'Call Native Func' });
+});
 
 router.get('/productId/', function(req, res, next) {
     setTimeout(function() {
