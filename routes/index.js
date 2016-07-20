@@ -31,7 +31,5 @@ router.get('/product/articles', function(req, res, next) {
 		     "result" : result }
     res.send(response)
 });
-	   
 
-	   
 module.exports = router;
