@@ -32,7 +32,10 @@ app.post('/profile', upload.single('avatar'), function (req, res, next) {
     // req.file is the `avatar` file
     // req.body will hold the text fields, if there were any
     console.log(req.file);
-    res.send("ok");
+    var result = {};
+    result.errorCode = 0;
+    result.message = "OK";
+    res.send(result);
 });
 
 // catch 404 and forward to error handler
