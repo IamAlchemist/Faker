@@ -24,6 +24,12 @@ router.get('/productId/', function(req, res, next) {
     }, 2000);
 });
 
+router.get('/echo', function(req, res, next) {
+    var response = { "errCode" : 0,
+		     "msg" : req.query.question }
+    res.send(response);
+});
+
 router.get('/product/articles', function(req, res, next) {
     var result = { "productId": req.query.productId,
 		   "articles" : "contents" }
@@ -33,3 +39,5 @@ router.get('/product/articles', function(req, res, next) {
 });
 
 module.exports = router;
+
+	   
