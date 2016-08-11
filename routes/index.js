@@ -6,6 +6,10 @@ router.get('/', function(req, res, next) {
     res.render('index', { title: 'Express' });
 });
 
+router.get('/sample', function(req, res, next) {
+    res.render('sample', { title: 'Sample' });
+});
+
 router.get('/echo_cookie', function(req, res, next) {
     res.setHeader("Set-Cookie", ['a=000']);
     res.render('echo_cookie', { title: 'Echo Cookie' });
