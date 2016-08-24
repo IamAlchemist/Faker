@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.post('/cacheitems', function(req, res) {
     console.log("--- query ---");
-    console.log(req.query);
+    console.log(req.body);
     var result = generateCacheItems(req);
     res.send(result);
 });
