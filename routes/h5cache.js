@@ -15,7 +15,7 @@ function generateCacheItems(req) {
     prefix = prefix + "/images";
 
     var filenames = new Array("GOLD.001.png", "GOLD.002.jpeg");
-    var md5s = new Array("5c980839c607b8b2ad8b6b79b066981a", "5a82cd3f1bf662ef65964f06018970a9");
+    var md5s = new Array("bcb90f58ce5cd02cee7d3bb3a72ee5c7", "5a82cd3f1bf662ef65964f06018970a9");
 
     var result = new Array();
     
