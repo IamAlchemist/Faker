@@ -13,13 +13,12 @@ router.post('/cacheitems', function(req, res) {
 });
 
 router.post('/fingerprint', function(req, res) {
-    console.log("--- query ---");
-    console.log(req.body);
-    
     var sourcename = path.dirname(__filename) + '/../data/h5CacheList.json';
+    
     md5File(sourcename).then(hash => {
 	var result = new Object();
-	result.md5 = hash
+	result.md5 = hash;
+	result.interval = 5000;
 	res.send(result);
     });
 });
