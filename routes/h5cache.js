@@ -1,5 +1,7 @@
 var q = require('q');
 var fs = require('fs');
+const path = require('path');
+const md5File = require('md5-file/promise')
 var express = require('express');
 var router = express.Router();
 
@@ -10,13 +12,26 @@ router.post('/cacheitems', function(req, res) {
     res.send(result);
 });
 
+router.post('/fingerprint', function(req, res) {
+    console.log("--- query ---");
+    console.log(req.body);
+    
+    var sourcename = path.dirname(__filename) + '/../data/h5CacheList.json';
+    md5File(sourcename).then(hash => {
+	var result = new Object();
+	result.md5 = hash
+	res.send(result);
+    });
+});
 
 function generateCacheItems(req) {
     var prefix = req.headers.host;
     prefix = "http://" + prefix;
     prefix = prefix + "/images/";
+
+    var sourcename = path.dirname(__filename) + '/../data/h5CacheList.json';
     
-    var array  = JSON.parse(fs.readFileSync('data/h5CacheList.json', 'utf8'));
+    var array  = JSON.parse(fs.readFileSync(sourcename, 'utf8'));
 
     var result = new Array();
     
