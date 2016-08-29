@@ -1,3 +1,5 @@
+var q = require('q');
+var fs = require('fs');
 var express = require('express');
 var router = express.Router();
 
@@ -12,24 +14,24 @@ router.post('/cacheitems', function(req, res) {
 function generateCacheItems(req) {
     var prefix = req.headers.host;
     prefix = "http://" + prefix;
-    prefix = prefix + "/images";
-
-    var filenames = new Array("GOLD.001.png", "GOLD.002.jpeg");
-    var md5s = new Array("bcb90f58ce5cd02cee7d3bb3a72ee5c7", "5a82cd3f1bf662ef65964f06018970a9");
+    prefix = prefix + "/images/";
+    
+    var array  = JSON.parse(fs.readFileSync('data/h5CacheList.json', 'utf8'));
 
     var result = new Array();
     
-    for (var i = 0; i < 2; ++i) {
-	var url = prefix + "/" + filenames[i];
-	var md5 = md5s[i];
+    for(var i = 0; i < array.length; ++i) {
+	var item = array[i];
+	var url = prefix + item.filename;
+	var md5 = item.md5
 
-	var item = new Object();
-	item.url = url;
-	item.md5 = md5;
+	var object = new Object();
+	object.url = url;
+	object.md5 = md5;
 
-	result[i] = item;
+	result[i] = object;
     }
-
+    
     return result;
 }
 
