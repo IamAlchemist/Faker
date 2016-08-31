@@ -5,20 +5,27 @@ const md5File = require('md5-file/promise')
 var express = require('express');
 var router = express.Router();
 
-router.post('/cacheitems', function(req, res) {
+router.post('/update', function(req, res) {
     console.log("--- query ---");
     console.log(req.body);
     var result = generateCacheItems(req);
     res.send(result);
 });
 
-router.post('/fingerprint', function(req, res) {
+router.post('/ask', function(req, res) {
     var sourcename = path.dirname(__filename) + '/../data/h5CacheList.json';
     
     md5File(sourcename).then(hash => {
 	var result = new Object();
-	result.md5 = hash;
-	result.interval = 5000;
+	result.returnCode = "0";
+	result.returnMsg = null;
+	
+	var content = {};
+	content.cacheFP = hash;
+	content.pollTime = 10000;
+	content.needCache = 1;
+	result.content = content;
+	
 	res.send(result);
     });
 });
@@ -26,13 +33,12 @@ router.post('/fingerprint', function(req, res) {
 function generateCacheItems(req) {
     var prefix = req.headers.host;
     prefix = "http://" + prefix;
-    prefix = prefix + "/images/";
 
     var sourcename = path.dirname(__filename) + '/../data/h5CacheList.json';
     
     var array  = JSON.parse(fs.readFileSync(sourcename, 'utf8'));
 
-    var result = new Array();
+    var content = new Array();
     
     for(var i = 0; i < array.length; ++i) {
 	var item = array[i];
@@ -43,8 +49,14 @@ function generateCacheItems(req) {
 	object.url = url;
 	object.md5 = md5;
 
-	result[i] = object;
+	content[i] = object;
     }
+
+    var result = {};
+
+    result.returnCode = "0";
+    result.returnMsg = null;
+    result.content = content;
     
     return result;
 }

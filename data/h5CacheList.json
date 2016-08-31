@@ -1,14 +1,18 @@
 [
     {
-	"filename": "gold.001.png",
+	"filename": "/images/gold.001.png",
 	"md5": "5c980839c607b8b2ad8b6b79b066981a"
     },
     {
-	"filename": "gold.002.jpeg",
+	"filename": "/images/gold.002.jpeg",
 	"md5": "5a82cd3f1bf662ef65964f06018970a9"
     },
     {
-    	"filename": "gold.003.jpeg",
+    	"filename": "/images/gold.003.jpeg",
     	"md5": "7f28ae6dbdd595e4fbbd1a6353f59e55"
+    },
+    {
+	"filename": "/public/javascripts/sample-main.js",
+	"md5": "2c26498fdfac5744c323fa775864ed8a"
     }
 ]
