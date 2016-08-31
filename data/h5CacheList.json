@@ -14,5 +14,9 @@
     {
 	"filename": "/public/javascripts/sample-main.js",
 	"md5": "2c26498fdfac5744c323fa775864ed8a"
+    },
+    {
+	"filename": "/public/stylesheets/style.css",
+	"md5": "5982f51e8f0e5b9eacd30265e1c6dbbd"
     }
 ]
