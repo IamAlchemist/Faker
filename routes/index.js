@@ -10,6 +10,10 @@ router.get('/sample', function(req, res, next) {
     res.render('sample', { title: 'Sample' });
 });
 
+router.get('/sample2', function(req, res, next) {
+    res.render('sample2', { title: 'Sample2' });
+});
+
 router.get('/echo_cookie', function(req, res, next) {
     res.setHeader("Set-Cookie", ['a=000']);
     res.render('echo_cookie', { title: 'Echo Cookie' });
