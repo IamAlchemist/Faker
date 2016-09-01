@@ -1,3 +1,4 @@
+
 var q = require('q');
 var fs = require('fs');
 const path = require('path');
@@ -56,6 +57,7 @@ function generateCacheItems(req) {
 
     result.returnCode = "0";
     result.returnMsg = null;
+    result.incrementUpdate = false;
     result.content = content;
     
     return result;
