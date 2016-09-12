@@ -10,5 +10,5 @@ a {
 .topic-baby {
     width: 900px;
     height: 500px;
-    background-image: url("/images/gold.001.png");
+    background-image: url(../images/gold.001.png);
 }
